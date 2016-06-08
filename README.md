@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/limi58/ease-animate.svg?branch=master)](https://travis-ci.org/limi58/ease-animate)
+
 # ease-animate
 let everything ease animate
 
