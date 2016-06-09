@@ -1,10 +1,15 @@
 [![Build Status](https://travis-ci.org/limi58/ease-animate.svg?branch=master)](https://travis-ci.org/limi58/ease-animate)
 
 # ease-animate
-let everything ease animate
+A javascript library want let everything ease animate
 
 # Usage 
-引入js
+npm 安装
+```
+npm install --save ease-animate
+```
+
+或引入js
 ```html 
 <script type="text/javascript" src='../dist/ease-animate.js'></script>
 ```
@@ -26,9 +31,9 @@ animate.scrollAnimate(0)
 
 # animate API
 
-## domAnimate
+## domAnimate()
 
-**domAnimate(selector, opts, [duration], [easing])**
+**domAnimate(selector, opts, [duration = 500], [easing = 'easeInQuad'])**
 
 dom 元素动画
 
@@ -40,13 +45,23 @@ duration: 可选，运动时间，单位ms，默认500
 
 easing: 可选，缓动类型，默认 `easeInQuad`
 
-## scrollAnimate
+## scrollAnimate()
 
-**animate.scrollAnimate(position)**
+**animate.scrollAnimate(position, [duration = 500], [easing = 'easeInQuad'])**
 
 滚动条运动
 
 position: 滚动到xx位置
+
+duration: 可选，运动时间，单位ms，默认500
+
+easing: 可选，缓动类型，默认 `easeInQuad`
+
+## isScrolling
+返回boolean，判断scrollAnimate()是否正在跑
+
+## isDomRunning
+返回boolean，判断domAnimate()是否正在跑
 
 # easing 
 参考 [jquery.easing](https://github.com/gdsmith/jquery.easing)

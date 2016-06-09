@@ -2,4 +2,9 @@ language: node_js
 node_js:
   - "6"
 before_script:
+  - npm install -g webpack
   - npm install -g mocha
+script: 
+  - npm test
+  - npm run dist 
+  - npm start
