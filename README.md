@@ -5,7 +5,7 @@
 A javascript library want let everything ease animate
 
 # Usage 
-1. install 
+**install** 
 
 ```
 npm install --save ease-animate
@@ -17,13 +17,13 @@ or
 <script type="text/javascript" src='./dist/ease-animate.min.js'></script>
 ```
 
-2. run
+**run**
 
 ```js
 const animate = new Animate()
 ```
 
-**dom animate **
+**dom animate**
 
 ```js 
 animate.domAnimate('#ele', {top: 200, left: 500}, 1000, 'easeInOutBounce')
@@ -35,13 +35,14 @@ animate.domAnimate('#ele', {top: 200, left: 500}, 1000, 'easeInOutBounce')
 animate.scrollAnimate(0)
 ```
 
-# animate API
+# API
 
-## domAnimate()
+## new Animate()
+实例化 Animate
 
-**domAnimate(selector, opts, [duration = 500], [easing = 'quadInOut'])**
+### domAnimate()
 
-dom 元素动画
+**void domAnimate(str selector, obj opts, [num duration = 500], [str easing = 'quadInOut']) dom 元素动画**
 
 selector: 类 css 选择器，不支持多个
 
@@ -51,11 +52,9 @@ duration: 可选，运动时间，单位ms，默认500
 
 easing: 可选，缓动类型，默认 `quadInOut`
 
-## scrollAnimate()
+### scrollAnimate()
 
-**animate.scrollAnimate(position, [duration = 500], [easing = 'circleInOut'])**
-
-滚动条运动
+**void animate.scrollAnimate(num position [, num duration = 500] [, str easing = 'circleInOut']) 滚动条运动**
 
 position: 滚动到xx位置
 
@@ -63,14 +62,14 @@ duration: 可选，运动时间，单位ms，默认500
 
 easing: 可选，缓动类型，默认 `circleInOut`
 
-## isScrolling
+### isScrolling
 返回boolean，判断scrollAnimate()是否正在跑
 
-## isDomRunning
+### isDomRunning
 返回boolean，判断domAnimate()是否正在跑
 
 # easing 
-参考 [ease-generator](https://github.com/limi58/ease-generator)
+缓动类型参考 [ease-generator](https://github.com/limi58/ease-generator#generator)
 
 # demo
 [here](demo/demo.html)
