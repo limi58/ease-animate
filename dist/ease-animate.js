@@ -1,1 +1,226 @@
-!function(t){function n(r){if(e[r])return e[r].exports;var u=e[r]={exports:{},id:r,loaded:!1};return t[r].call(u.exports,u,u.exports,n),u.loaded=!0,u.exports}var e={};return n.m=t,n.c=e,n.p="http://localhost:3000/",n(0)}([function(t,n,e){"use strict";function r(){this.interval=10,this.isDomRunning=!1,this.isScrolling=!1}var u=e(3),a=e(4);r.prototype={domAnimate:u,scrollAnimate:a};try{t.exports=r,window.Animate=r}catch(i){}},function(t,n,e){"use strict";function r(t,n,e,r,i){u(e,i);for(var o=new a,s=[],c=0;e>=c;c+=i)s.push(o[r](c,t,n-t,e).toFixed(2));return s}function u(t,n){if(n>t||10>n)throw new Error('"duration" must greater than "interval" and "interval" should not less than 10')}var a=e(2);t.exports=r},function(t,n){"use strict";function e(){}e.prototype={easeInQuad:function(t,n,e,r){return e*(t/=r)*t+n},easeOutQuad:function(t,n,e,r){return-e*(t/=r)*(t-2)+n},easeInOutQuad:function(t,n,e,r){return(t/=r/2)<1?e/2*t*t+n:-e/2*(--t*(t-2)-1)+n},easeInCubic:function(t,n,e,r){return e*(t/=r)*t*t+n},easeOutCubic:function(t,n,e,r){return e*((t=t/r-1)*t*t+1)+n},easeInOutCubic:function(t,n,e,r){return(t/=r/2)<1?e/2*t*t*t+n:e/2*((t-=2)*t*t+2)+n},easeInQuart:function(t,n,e,r){return e*(t/=r)*t*t*t+n},easeOutQuart:function(t,n,e,r){return-e*((t=t/r-1)*t*t*t-1)+n},easeInOutQuart:function(t,n,e,r){return(t/=r/2)<1?e/2*t*t*t*t+n:-e/2*((t-=2)*t*t*t-2)+n},easeInQuint:function(t,n,e,r){return e*(t/=r)*t*t*t*t+n},easeOutQuint:function(t,n,e,r){return e*((t=t/r-1)*t*t*t*t+1)+n},easeInOutQuint:function(t,n,e,r){return(t/=r/2)<1?e/2*t*t*t*t*t+n:e/2*((t-=2)*t*t*t*t+2)+n},easeInSine:function(t,n,e,r){return-e*Math.cos(t/r*(Math.PI/2))+e+n},easeOutSine:function(t,n,e,r){return e*Math.sin(t/r*(Math.PI/2))+n},easeInOutSine:function(t,n,e,r){return-e/2*(Math.cos(Math.PI*t/r)-1)+n},easeInExpo:function(t,n,e,r){return 0==t?n:e*Math.pow(2,10*(t/r-1))+n},easeOutExpo:function(t,n,e,r){return t==r?n+e:e*(-Math.pow(2,-10*t/r)+1)+n},easeInOutExpo:function(t,n,e,r){return 0==t?n:t==r?n+e:(t/=r/2)<1?e/2*Math.pow(2,10*(t-1))+n:e/2*(-Math.pow(2,-10*--t)+2)+n},easeInCirc:function(t,n,e,r){return-e*(Math.sqrt(1-(t/=r)*t)-1)+n},easeOutCirc:function(t,n,e,r){return e*Math.sqrt(1-(t=t/r-1)*t)+n},easeInOutCirc:function(t,n,e,r){return(t/=r/2)<1?-e/2*(Math.sqrt(1-t*t)-1)+n:e/2*(Math.sqrt(1-(t-=2)*t)+1)+n},easeInElastic:function(t,n,e,r){var u=1.70158,a=0,i=e;if(0==t)return n;if(1==(t/=r))return n+e;if(a||(a=.3*r),i<Math.abs(e)){i=e;var u=a/4}else var u=a/(2*Math.PI)*Math.asin(e/i);return-(i*Math.pow(2,10*(t-=1))*Math.sin((t*r-u)*(2*Math.PI)/a))+n},easeOutElastic:function(t,n,e,r){var u=1.70158,a=0,i=e;if(0==t)return n;if(1==(t/=r))return n+e;if(a||(a=.3*r),i<Math.abs(e)){i=e;var u=a/4}else var u=a/(2*Math.PI)*Math.asin(e/i);return i*Math.pow(2,-10*t)*Math.sin((t*r-u)*(2*Math.PI)/a)+e+n},easeInOutElastic:function(t,n,e,r){var u=1.70158,a=0,i=e;if(0==t)return n;if(2==(t/=r/2))return n+e;if(a||(a=r*(.3*1.5)),i<Math.abs(e)){i=e;var u=a/4}else var u=a/(2*Math.PI)*Math.asin(e/i);return 1>t?-.5*(i*Math.pow(2,10*(t-=1))*Math.sin((t*r-u)*(2*Math.PI)/a))+n:i*Math.pow(2,-10*(t-=1))*Math.sin((t*r-u)*(2*Math.PI)/a)*.5+e+n},easeInBack:function(t,n,e,r,u){return void 0==u&&(u=1.70158),e*(t/=r)*t*((u+1)*t-u)+n},easeOutBack:function(t,n,e,r,u){return void 0==u&&(u=1.70158),e*((t=t/r-1)*t*((u+1)*t+u)+1)+n},easeInOutBack:function(t,n,e,r,u){return void 0==u&&(u=1.70158),(t/=r/2)<1?e/2*(t*t*(((u*=1.525)+1)*t-u))+n:e/2*((t-=2)*t*(((u*=1.525)+1)*t+u)+2)+n},easeInBounce:function(t,n,e,r){return e-this.easeOutBounce(r-t,0,e,r)+n},easeOutBounce:function(t,n,e,r){return(t/=r)<1/2.75?e*(7.5625*t*t)+n:2/2.75>t?e*(7.5625*(t-=1.5/2.75)*t+.75)+n:2.5/2.75>t?e*(7.5625*(t-=2.25/2.75)*t+.9375)+n:e*(7.5625*(t-=2.625/2.75)*t+.984375)+n},easeInOutBounce:function(t,n,e,r){return r/2>t?.5*this.easeInBounce(2*t,0,e,r)+n:.5*this.easeOutBounce(2*t-r,0,e,r)+.5*e+n}},t.exports=e},function(t,n,e){"use strict";function r(t,n){var e=arguments.length<=2||void 0===arguments[2]?500:arguments[2],r=arguments.length<=3||void 0===arguments[3]?"easeInQuad":arguments[3],i=a(t,n,e,r,this.interval);u.call(this,t,i,this.interval)}function u(t,n,e){var r=this,u=0,a=n[0].numbers.length;this.isDomRunning=!0;var i=setInterval(function(){n.forEach(function(n){o(t,n.attr,n.numbers[u],n.unit)}),u++,u>=a&&(clearInterval(i),r.isDomRunning=!1)},e)}function a(t,n,e,r,u){var a=[];for(var o in n){var s=o,f=i(t,s),h=parseFloat(f),l=parseFloat(n[o]),v=f.replace(h,"");a.push({attr:o,numbers:c(h,l,e,r,u),unit:v})}return a}function i(t,n){var e=s(t);return window.getComputedStyle(e,null)[n]}function o(t,n,e,r){s(t).style[n]=""+e+r}function s(t){return document.querySelector(t)}var c=e(1);t.exports=r},function(t,n,e){"use strict";function r(t){var n=this,e=arguments.length<=1||void 0===arguments[1]?500:arguments[1],r=arguments.length<=2||void 0===arguments[2]?"easeInQuad":arguments[2];if(!this.isScrolling){var a=this.interval,i=u(document.body.scrollTop||document.documentElement.scrollTop,t,e,r,a),o=i.length,s=0;this.isScrolling=!0;var c=setInterval(function(){window.scrollTo(0,i[s]),s++,s>=o&&(clearInterval(c),n.isScrolling=!1)},a)}}var u=e(1);t.exports=r}]);
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["Animate"] = factory();
+	else
+		root["Animate"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var domAnimate = __webpack_require__(1);
+	var scrollAnimate = __webpack_require__(5);
+	
+	function Animate() {
+	  this.interval = 10;
+	  this.isDomRunning = false;
+	  this.isScrolling = false;
+	}
+	
+	Animate.prototype = {
+	  domAnimate: domAnimate,
+	  scrollAnimate: scrollAnimate
+	};
+	
+	try {
+	  module.exports = Animate;
+	  window['Animate'] = Animate;
+	} catch (e) {}
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var generateNumber = __webpack_require__(2);
+	
+	// dom animate main controller
+	function domAnimate(selector, opts) {
+	  var duration = arguments.length <= 2 || arguments[2] === undefined ? 500 : arguments[2];
+	  var easing = arguments.length <= 3 || arguments[3] === undefined ? 'quadInOut' : arguments[3];
+	
+	  var animationProps = getAnimationProps(selector, opts, duration, easing, this.interval);
+	  startDomAnimate.call(this, selector, animationProps, this.interval);
+	}
+	
+	// let dom animate
+	function startDomAnimate(selector, animationProps, interval) {
+	  var _this = this;
+	
+	  var numberIndex = 0;
+	  var numbersLength = animationProps[0].numbers.length;
+	  this.isDomRunning = true;
+	  var tick = setInterval(function () {
+	    animationProps.forEach(function (prop) {
+	      setStyle(selector, prop.attr, prop.numbers[numberIndex], prop.unit);
+	    });
+	    numberIndex++;
+	    if (numberIndex >= numbersLength) {
+	      clearInterval(tick);
+	      _this.isDomRunning = false;
+	    }
+	  }, interval);
+	}
+	
+	// change opts to [{attr: 'top', unit: 'px', numbers: [1,2,2,...]}]
+	function getAnimationProps(selector, opts, duration, easing, interval) {
+	  var animationProps = [];
+	  for (var i in opts) {
+	    var attr = i;
+	    var currentOriginValue = getStyle(selector, attr);
+	    var currentValue = parseFloat(currentOriginValue);
+	    var targetValue = parseFloat(opts[i]);
+	    var unit = currentOriginValue.replace(currentValue, '');
+	    animationProps.push({
+	      attr: i,
+	      numbers: generateNumber(currentValue, targetValue, duration, easing, interval),
+	      unit: unit
+	    });
+	  }
+	  return animationProps;
+	}
+	
+	function getStyle(selector, attr) {
+	  var dom = $(selector);
+	  return window.getComputedStyle(dom, null)[attr];
+	}
+	
+	function setStyle(selector, attr, value, unit) {
+	  $(selector).style[attr] = '' + value + unit;
+	}
+	
+	function $(selector) {
+	  return document.querySelector(selector);
+	}
+	
+	module.exports = domAnimate;
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var generate = __webpack_require__(3);
+	
+	/**
+	 * generate easing numbers [1,1,1,2,3,4,...]
+	 */
+	function generateNumber(beginValue, endValue, duration, easing, interval) {
+	  verifyParams(duration, interval);
+	  var count = duration / interval;
+	  var times = endValue - beginValue;
+	  var numbers = generate(easing, count, times).map(function (number) {
+	    return (number + beginValue).toFixed(4);
+	  });
+	  return numbers;
+	}
+	
+	function verifyParams(duration, interval) {
+	  if (duration < interval || interval < 10) {
+	    throw new Error('"duration" must greater than "interval" and "interval" should not less than 10');
+	  }
+	}
+	
+	module.exports = generateNumber;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const generator = __webpack_require__(4)
+	
+	module.exports = generator
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	!function(t,n){ true?module.exports=n():"function"==typeof define&&define.amd?define([],n):"object"==typeof exports?exports.generator=n():t.generator=n()}(this,function(){return function(t){function n(e){if(u[e])return u[e].exports;var r=u[e]={exports:{},id:e,loaded:!1};return t[e].call(r.exports,r,r.exports,n),r.loaded=!0,r.exports}var u={};return n.m=t,n.c=u,n.p="",n(0)}([function(t,n,u){"use strict";function e(t){return t&&t.__esModule?t:{"default":t}}function r(t,n){for(var u=arguments.length<=2||void 0===arguments[2]?1:arguments[2],e=arguments.length<=3||void 0===arguments[3]?4:arguments[3],r=[],o=0;n>=o;o+=1){var i=c["default"][t](o/n).toFixed(e)*u;r.push(i)}return r}var o=u(7),c=e(o);t.exports=r},function(t,n){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var u=1.70158;n.backIn=function e(t){function n(n){return n*n*((t+1)*n-t)}return t=+t,n.overshoot=e,n}(u),n.backOut=function r(t){function n(n){return--n*n*((t+1)*n+t)+1}return t=+t,n.overshoot=r,n}(u),n.backInOut=function o(t){function n(n){return((n*=2)<1?n*n*((t+1)*n-t):(n-=2)*n*((t+1)*n+t)+2)/2}return t=+t,n.overshoot=o,n}(u)},function(t,n){"use strict";function u(t){return 1-e(1-t)}function e(t){return(t=+t)<o?I*t*t:i>t?I*(t-=c)*t+a:s>t?I*(t-=f)*t+l:I*(t-=p)*t+O}function r(t){return((t*=2)<=1?1-e(1-t):e(t-1)+1)/2}Object.defineProperty(n,"__esModule",{value:!0}),n.bounceIn=u,n.bounceOut=e,n.bounceInOut=r;var o=4/11,c=6/11,i=8/11,a=.75,f=9/11,s=10/11,l=.9375,p=21/22,O=63/64,I=1/o/o},function(t,n){"use strict";function u(t){return 1-Math.sqrt(1-t*t)}function e(t){return Math.sqrt(1- --t*t)}function r(t){return((t*=2)<=1?1-Math.sqrt(1-t*t):Math.sqrt(1-(t-=2)*t)+1)/2}Object.defineProperty(n,"__esModule",{value:!0}),n.circleIn=u,n.circleOut=e,n.circleInOut=r},function(t,n){"use strict";function u(t){return t*t*t}function e(t){return--t*t*t+1}function r(t){return((t*=2)<=1?t*t*t:(t-=2)*t*t+2)/2}Object.defineProperty(n,"__esModule",{value:!0}),n.cubicIn=u,n.cubicOut=e,n.cubicInOut=r},function(t,n){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var u=2*Math.PI,e=1,r=.3;n.elasticIn=function o(t,n){function e(u){return t*Math.pow(2,10*--u)*Math.sin((r-u)/n)}var r=Math.asin(1/(t=Math.max(1,t)))*(n/=u);return e.amplitude=function(t){return o(t,n*u)},e.period=function(n){return o(t,n)},e}(e,r),n.elasticOut=function c(t,n){function e(u){return 1-t*Math.pow(2,-10*(u=+u))*Math.sin((u+r)/n)}var r=Math.asin(1/(t=Math.max(1,t)))*(n/=u);return e.amplitude=function(t){return c(t,n*u)},e.period=function(n){return c(t,n)},e}(e,r),n.elasticInOut=function i(t,n){function e(u){return((u=2*u-1)<0?t*Math.pow(2,10*u)*Math.sin((r-u)/n):2-t*Math.pow(2,-10*u)*Math.sin((r+u)/n))/2}var r=Math.asin(1/(t=Math.max(1,t)))*(n/=u);return e.amplitude=function(t){return i(t,n*u)},e.period=function(n){return i(t,n)},e}(e,r)},function(t,n){"use strict";function u(t){return Math.pow(2,10*t-10)}function e(t){return 1-Math.pow(2,-10*t)}function r(t){return((t*=2)<=1?Math.pow(2,10*t-10):2-Math.pow(2,10-10*t))/2}Object.defineProperty(n,"__esModule",{value:!0}),n.expIn=u,n.expOut=e,n.expInOut=r},function(t,n,u){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var e=u(1),r=u(2),o=u(3),c=u(4),i=u(5),a=u(6),f=u(8),s=u(9),l=u(10),p=u(11),O={backIn:e.backIn,backOut:e.backOut,backInOut:e.backInOut,bounceIn:r.bounceIn,bounceOut:r.bounceOut,bounceInOut:r.bounceInOut,circleIn:o.circleIn,circleOut:o.circleOut,circleInOut:o.circleInOut,cubicIn:c.cubicIn,cubicOut:c.cubicOut,cubicInOut:c.cubicInOut,elasticIn:i.elasticIn,elasticOut:i.elasticOut,elasticInOut:i.elasticInOut,expIn:a.expIn,expOut:a.expOut,expInOut:a.expInOut,linear:f.linear,polyIn:s.polyIn,polyOut:s.polyOut,polyInOut:s.polyInOut,quadIn:l.quadIn,quadOut:l.quadOut,quadInOut:l.quadInOut,sinIn:p.sinIn,sinOut:p.sinOut,sinInOut:p.sinInOut};n["default"]=O},function(t,n){"use strict";function u(t){return+t}Object.defineProperty(n,"__esModule",{value:!0}),n.linear=u},function(t,n){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var u=3;n.polyIn=function e(t){function n(n){return Math.pow(n,t)}return t=+t,n.exponent=e,n}(u),n.polyOut=function r(t){function n(n){return 1-Math.pow(1-n,t)}return t=+t,n.exponent=r,n}(u),n.polyInOut=function o(t){function n(n){return((n*=2)<=1?Math.pow(n,t):2-Math.pow(2-n,t))/2}return t=+t,n.exponent=o,n}(u)},function(t,n){"use strict";function u(t){return t*t}function e(t){return t*(2-t)}function r(t){return((t*=2)<=1?t*t:--t*(2-t)+1)/2}Object.defineProperty(n,"__esModule",{value:!0}),n.quadIn=u,n.quadOut=e,n.quadInOut=r},function(t,n){"use strict";function u(t){return 1-Math.cos(t*c)}function e(t){return Math.sin(t*c)}function r(t){return(1-Math.cos(o*t))/2}Object.defineProperty(n,"__esModule",{value:!0}),n.sinIn=u,n.sinOut=e,n.sinInOut=r;var o=Math.PI,c=o/2}])});
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var generateNumber = __webpack_require__(2);
+	
+	function scrollAnimate(targetValue) {
+	  var _this = this;
+	
+	  var duration = arguments.length <= 1 || arguments[1] === undefined ? 500 : arguments[1];
+	  var easing = arguments.length <= 2 || arguments[2] === undefined ? 'circleInOut' : arguments[2];
+	
+	  if (this.isScrolling) return;
+	  var interval = this.interval;
+	  var numbers = generateNumber(document.body.scrollTop || document.documentElement.scrollTop, targetValue, duration, easing, interval);
+	  var numbersLength = numbers.length;
+	  var numberIndex = 0;
+	  this.isScrolling = true;
+	  var tick = setInterval(function () {
+	    window.scrollTo(0, numbers[numberIndex]);
+	    numberIndex++;
+	    if (numberIndex >= numbersLength) {
+	      clearInterval(tick);
+	      _this.isScrolling = false;
+	    }
+	  }, interval);
+	}
+	
+	module.exports = scrollAnimate;
+
+/***/ }
+/******/ ])
+});
+;
+//# sourceMappingURL=ease-animate.js.map

@@ -1,27 +1,26 @@
-'use strict';
+const generateNumber = require('./generate-number.js')
 
-var generateNumber = require('./generate-number.js');
-
-function scrollAnimate(targetValue) {
-  var _this = this;
-
-  var duration = arguments.length <= 1 || arguments[1] === undefined ? 500 : arguments[1];
-  var easing = arguments.length <= 2 || arguments[2] === undefined ? 'easeInQuad' : arguments[2];
-
-  if (this.isScrolling) return;
-  var interval = this.interval;
-  var numbers = generateNumber(document.body.scrollTop || document.documentElement.scrollTop, targetValue, duration, easing, interval);
-  var numbersLength = numbers.length;
-  var numberIndex = 0;
-  this.isScrolling = true;
-  var tick = setInterval(function () {
-    window.scrollTo(0, numbers[numberIndex]);
-    numberIndex++;
-    if (numberIndex >= numbersLength) {
-      clearInterval(tick);
-      _this.isScrolling = false;
+function scrollAnimate(targetValue, duration = 500, easing = 'circleInOut'){
+  if(this.isScrolling) return
+  const interval = this.interval
+  const numbers = generateNumber(
+    document.body.scrollTop || document.documentElement.scrollTop,
+    targetValue, 
+    duration, 
+    easing, 
+    interval
+  )
+  const numbersLength = numbers.length
+  let numberIndex = 0
+  this.isScrolling = true
+  const tick = setInterval(() => {
+    window.scrollTo(0, numbers[numberIndex])
+    numberIndex ++
+    if(numberIndex >= numbersLength) {
+      clearInterval(tick)
+      this.isScrolling = false
     }
-  }, interval);
+  }, interval)
 }
 
-module.exports = scrollAnimate;
+module.exports = scrollAnimate

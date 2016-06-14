@@ -5,24 +5,25 @@ const DEBUG = process.env.NODE_ENV !== 'production'
 module.exports = {
   debug: DEBUG,
   devtool: DEBUG ? 'source-map' : '',
-  //页面入口文件配置
-  entry: DEBUG ? [
-    // 'webpack-dev-server/client?http://localhost:3000/',
-    // 'webpack/hot/only-dev-server',
-    './src/ease-animate.js'
-  ] : './src/ease-animate.js',
+  // entry: DEBUG ? [
+  //   // 'webpack-dev-server/client?http://localhost:3000/',
+  //   // 'webpack/hot/only-dev-server',
+  //   './src/easy-touch.js'
+  // ] : './src/easy-touch.js',
   output: {
+    library: 'Animate',
+    libraryTarget: 'umd',
     // 资源路径的前缀而已，便于更改cdn
-    publicPath: 'http://localhost:3000/',
-    // 所有 output 输出的绝对位置，js、jpg 等等
-    path: path.join(__dirname, 'dist'),
-    filename: "ease-animate.js"
+    // publicPath: 'http://localhost:3000/',
+    // // 所有 output 输出的绝对位置，js、jpg 等等
+    // path: path.join(__dirname, 'dist'),
+    // filename: "easy-touch.js"
   },
   module: {
     loaders: [
       {
-        test: /\.js?$/,
-        loader: 'babel',
+        test: /\.js$/,
+        loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
           presets: ['es2015']
@@ -39,13 +40,14 @@ module.exports = {
   // require 可以免掉后缀名
   resolve: {
     extensions: ['', '.js', '.json', '.scss', '.jsx'],
-    // alias 可以设置别名
+    // alias 设置别名
     alias: {
-      'config': path.join(__dirname, 'config.js')
+      // 'config': path.join(__dirname, 'config.js')
     }
   },
-  // 插件
   plugins: DEBUG ? [
     // new webpack.HotModuleReplacementPlugin()
-  ] : []
+  ] : [
+    
+  ]
 }

@@ -28,8 +28,8 @@
   <script type="text/javascript" src='../dist/ease-animate.js'></script>
   <script type="text/javascript">
     var animate = new Animate()
-    animate.domAnimate('#ele', {top: 200, left: 500}, 1000, 'easeInOutBounce')
-    window.addEventListener('click', function(){animate.scrollAnimate(0)})
+    animate.domAnimate('#ele', {top: 200, left: 500}, 1000)
+    window.addEventListener('click', function(){animate.scrollAnimate(0, 1000)})
   </script>
 </body>
 </html>

@@ -1,64 +1,57 @@
-'use strict';
-
-var generateNumber = require('./generate-number.js');
+const generateNumber = require('./generate-number.js')
 
 // dom animate main controller
-function domAnimate(selector, opts) {
-  var duration = arguments.length <= 2 || arguments[2] === undefined ? 500 : arguments[2];
-  var easing = arguments.length <= 3 || arguments[3] === undefined ? 'easeInQuad' : arguments[3];
-
-  var animationProps = getAnimationProps(selector, opts, duration, easing, this.interval);
-  startDomAnimate.call(this, selector, animationProps, this.interval);
+function domAnimate(selector, opts, duration = 500, easing = 'quadInOut'){
+  const animationProps = getAnimationProps(selector, opts, duration, easing, this.interval)
+  startDomAnimate.call(this, selector, animationProps, this.interval)
 }
 
 // let dom animate
-function startDomAnimate(selector, animationProps, interval) {
-  var _this = this;
-
-  var numberIndex = 0;
-  var numbersLength = animationProps[0].numbers.length;
-  this.isDomRunning = true;
-  var tick = setInterval(function () {
-    animationProps.forEach(function (prop) {
-      setStyle(selector, prop.attr, prop.numbers[numberIndex], prop.unit);
-    });
-    numberIndex++;
-    if (numberIndex >= numbersLength) {
-      clearInterval(tick);
-      _this.isDomRunning = false;
+function startDomAnimate(selector, animationProps, interval){
+  let numberIndex = 0
+  const numbersLength = animationProps[0].numbers.length
+  this.isDomRunning = true
+  const tick = setInterval(() => {
+    animationProps.forEach(prop => {
+      setStyle(selector, prop.attr, prop.numbers[numberIndex], prop.unit)
+    })
+    numberIndex ++
+    if(numberIndex >= numbersLength) {
+      clearInterval(tick)
+      this.isDomRunning = false
     }
-  }, interval);
+  }, interval)
 }
 
 // change opts to [{attr: 'top', unit: 'px', numbers: [1,2,2,...]}]
-function getAnimationProps(selector, opts, duration, easing, interval) {
-  var animationProps = [];
-  for (var i in opts) {
-    var attr = i;
-    var currentOriginValue = getStyle(selector, attr);
-    var currentValue = parseFloat(currentOriginValue);
-    var targetValue = parseFloat(opts[i]);
-    var unit = currentOriginValue.replace(currentValue, '');
+function getAnimationProps(selector, opts, duration, easing, interval){
+  const animationProps = []
+  for(let i in opts){
+    const attr = i 
+    const currentOriginValue = getStyle(selector, attr)
+    const currentValue = parseFloat(currentOriginValue)
+    const targetValue = parseFloat(opts[i])
+    const unit = currentOriginValue.replace(currentValue, '')
     animationProps.push({
-      attr: i,
+      attr: i, 
       numbers: generateNumber(currentValue, targetValue, duration, easing, interval),
-      unit: unit
-    });
+      unit: unit,
+    })
   }
-  return animationProps;
+  return animationProps
 }
 
-function getStyle(selector, attr) {
-  var dom = $(selector);
-  return window.getComputedStyle(dom, null)[attr];
+function getStyle(selector, attr){
+  const dom = $(selector)
+  return window.getComputedStyle(dom, null)[attr]
 }
 
-function setStyle(selector, attr, value, unit) {
-  $(selector).style[attr] = '' + value + unit;
+function setStyle(selector, attr, value, unit){
+  $(selector).style[attr] = `${value}${unit}`
 }
 
-function $(selector) {
-  return document.querySelector(selector);
+function $(selector){
+  return document.querySelector(selector)
 }
 
-module.exports = domAnimate;
+module.exports = domAnimate
