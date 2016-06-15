@@ -12,10 +12,5 @@ Animate.prototype = {
   scrollAnimate,
 }
 
-try{
-  module.exports = Animate
-  window['Animate'] = Animate
-}catch(e){
-
-}
+module.exports = Animate
 

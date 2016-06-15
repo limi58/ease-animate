@@ -70,10 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  scrollAnimate: scrollAnimate
 	};
 	
-	try {
-	  module.exports = Animate;
-	  window['Animate'] = Animate;
-	} catch (e) {}
+	module.exports = Animate;
 
 /***/ },
 /* 1 */
