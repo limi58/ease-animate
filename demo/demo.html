@@ -15,7 +15,7 @@
       right: 0;
       left: 0;
       margin: 0 auto;
-      top: 100px; 
+      top: 100px;
     }
     body{
       height: 2500px;
@@ -28,8 +28,23 @@
   <script type="text/javascript" src='../dist/ease-animate.js'></script>
   <script type="text/javascript">
     var animate = new Animate()
-    animate.domAnimate('#ele', {top: 200, left: 500}, 1000)
-    window.addEventListener('click', function(){animate.scrollAnimate(0, 1000)})
+    animate.domAnimate({
+      selector: '#ele',
+      opts: {top: 200, left: 500},
+      duration: 1000,
+      onDone () {
+        console.log('dom done')
+      },
+    })
+    window.addEventListener('click', function(){
+      animate.scrollAnimate({
+        targetValue: 0,
+        duration: 1000,
+        onDone () {
+          console.log('scroll done')
+        },
+      })
+    })
   </script>
 </body>
 </html>

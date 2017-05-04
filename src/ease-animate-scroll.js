@@ -1,13 +1,14 @@
 const generateNumber = require('./generate-number.js')
 
-function scrollAnimate(targetValue, duration = 500, easing = 'circleInOut'){
+// opts: targetValue, duration = 500, easing = 'circleInOut', onDone,
+function scrollAnimate(opts){
   if(this.isScrolling) return
   const interval = this.interval
   const numbers = generateNumber(
     document.body.scrollTop || document.documentElement.scrollTop,
-    targetValue, 
-    duration, 
-    easing, 
+    opts.targetValue,
+    opts.duration || 500,
+    opts.easing || 'circleInOut',
     interval
   )
   const numbersLength = numbers.length
@@ -19,6 +20,7 @@ function scrollAnimate(targetValue, duration = 500, easing = 'circleInOut'){
     if(numberIndex >= numbersLength) {
       clearInterval(tick)
       this.isScrolling = false
+      if (opts.onDone) opts.onDone()
     }
   }, interval)
 }
